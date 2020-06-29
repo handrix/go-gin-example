@@ -9,6 +9,7 @@ import (
 
 	"go-gin-example/models"
 	"go-gin-example/pkg/e"
+	"go-gin-example/pkg/logging"
 	"go-gin-example/pkg/util"
 )
 
@@ -44,7 +45,7 @@ func GetAuth(c *gin.Context) {
 		}
 	} else {
 		for _, err := range valid.Errors {
-			log.Println(err.Key, err.Message)
+			logging.Error(err.Key, err.Message)
 		}
 	}
 
